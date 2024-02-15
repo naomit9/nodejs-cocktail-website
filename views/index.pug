@@ -1,0 +1,16 @@
+extends common/layout 
+
+block layout-content
+    #hero-section
+        .nav-container  
+            .nav-item 
+                a(href='/') Home
+                a(href='/list') List of Cocktails
+                a(href='/admin/cocktail') Admin Page
+        .hero-container
+            .hero-info 
+                h1.page-title Welcome to The Cocktail Club!
+                h2.sub-title Craft Your Signature Cocktail
+                p To get started, click the button below and embark on a flavorful adventure by crafting your very own signature cocktail. Cheers to new flavors and unforgettable sips!
+                button#main-button(type="submit")  
+                    a(href="/list") View Cocktails

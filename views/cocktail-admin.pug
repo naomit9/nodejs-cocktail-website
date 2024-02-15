@@ -1,0 +1,45 @@
+extends common/layout
+
+block layout-content
+    #admin-section 
+        .nav-container 
+            .nav-item   
+                a(href='/') Home
+                a(href='/list') List of Cocktails
+                a(href='/admin/cocktail') Admin Page
+        .admin-container 
+            h1.sub-title Admin Page
+    
+    .admin-table 
+                button(type="submit", style=" margin: 1rem 0; padding: 5px 10px;")
+                    a(href="/admin/cocktail/add", style="text-decoration:none; color:black;") Add New cocktail 
+                table 
+                    thead 
+                        tr 
+                            th.space-between-header.column-divider.row-divider Cocktail 
+                            th.space-between-header.column-divider.row-divider Type 
+                            th.space-between-header.column-divider.row-divider Origin
+                            th.space-between-header.column-divider.row-divider Alcohol  
+                            th.space-between-header.column-divider.row-divider Ingredients 
+                            th.space-between-header.column-divider.row-divider Preparation 
+                            th.space-between-header.column-divider.row-divider Created 
+                            th.space-between-header.row-divider Actions 
+                    tbody 
+                        each cocktailDrink in drinks 
+                            tr 
+                                td.column-divider.row-divider #{cocktailDrink.name}
+                                td.column-divider.row-divider #{cocktailDrink.type}
+                                td.column-divider.row-divider #{cocktailDrink.origin}
+                                td.column-divider.row-divider #{cocktailDrink.alcoholContent}
+                                td.column-divider.row-divider #{cocktailDrink.ingredients}
+                                td.column-divider.row-divider #{cocktailDrink.preparation}
+                                td.column-divider.row-divider #{cocktailDrink.creationDate}
+                                td.row-divider 
+                                    .button-container(style="display:flex;")
+                                        form(action="/admin/cocktail/delete")
+                                            input(type="hidden", name="cocktailId", value=cocktailDrink._id)
+                                            button(type="submit", style=" margin-right:1rem; margin-left:1rem; padding: 5px 10px;") Delete
+
+                                        form(action="/admin/cocktail/edit")
+                                            input(type="hidden", name="cocktailId", value=cocktailDrink._id)
+                                            button(type="submit", style="padding: 5px 10px;") Edit

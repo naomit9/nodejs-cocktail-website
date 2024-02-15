@@ -1,0 +1,66 @@
+extends common/layout
+
+block layout-content
+    #edit-section
+        .nav-container  
+            .nav-item 
+                a(href='/') Home
+                a(href='/list') List of Cocktails
+                a(href='/admin/cocktail') Admin Page 
+        .edit-container 
+            .edit-form 
+                form(method="POST", action="/admin/cocktail/edit/submit")
+                    h1.sub-title Edit Cocktails
+                    input(type="hidden", name="cocktailId", value=editCocktail._id)
+
+                    div.form 
+                        label(for = "name", style="margin-right:1rem;") Cocktail Name: 
+                        input(type= "text", id="name", name = "name", value=editCocktail.name)
+
+                    div.form
+                        label(for="type", style="margin-right:1rem;") Type of Cocktail:
+                        select(id="type", name="type", value=editCocktail.type)
+                            option(value="Bourbon") Bourbon
+                            option(value="Brandy") Brandy
+                            option(value="Gin") Gin
+                            option(value="Rum") Rum
+                            option(value="Tequila") Tequila
+                            option(value="Vermouth") Vermouth
+                            option(value="Vodka") Vodka
+                            option(value="Whiskey") Whiskey
+                            option(value="Other") Other
+
+                    div.form
+                        label Origin:
+                        div
+                            input(type="radio", id="originUsa", name="origin", value=editCocktail.origin)
+                            label(for="originUsa", style="margin-right:1rem;") USA
+                            input(type="radio", id="originCuba", name="origin", value=editCocktail.origin)
+                            label(for="originCuba", style="margin-right:1rem;") Cuba
+                            input(type="radio", id="originMexico", name="origin", value=editCocktail.origin)
+                            label(for="originMexico", style="margin-right:1rem;") Mexico
+                            input(type="radio", id="originSpain", name="origin", value=editCocktail.origin)
+                            label(for="originSpain", style="margin-right:1rem;") Spain
+                            input(type="radio", id="originOther", name="origin", value=editCocktail.origin)
+                            label(for="originOther") Other
+
+                    div.form
+                        label(for="alcoholContent", style="margin-right:1rem;") Alcohol Content:
+                        input(type="text", id="alcoholContent", name="alcoholContent", value=alcoholContent, placeholder="e.g. 10%")
+
+                    div.form
+                        label(for="ingredients", style="margin-right:1rem;") Ingredients:
+                        textarea(id="ingredients", name="ingredients", value=ingredients, placeholder="List of ingredients, separated by commas")
+
+                    div.form
+                        label(for="preparation", style="margin-right:1rem;") Preparation Method:
+                        textarea(id="preparation", name="preparation", value=preparation, placeholder="Step-by-step preparation instructions")
+
+                    div.form
+                        label(for="creationDate", style="margin-right:1rem;") Creation Date:
+                        input(type="date", id="creationDate", name="creationDate", value=creationDate)
+
+                            
+                    button#button(type = "submit", style="background-color:green;") Update 
+                    button#button(type = "cancel", style="margin-left:2rem; background-color:Red;") Cancel 
+        

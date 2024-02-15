@@ -1,0 +1,20 @@
+{
+  "name": "test-cocktail",
+  "version": "1.0.0",
+  "description": "Cocktail App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon /index.js"
+  },
+  "author": "Naomi Truong",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.3",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

@@ -1,0 +1,25 @@
+extends common/layout 
+
+block layout-content
+    #list-section
+        .nav-container  
+            .nav-item 
+                a(href='/') Home
+                a(href='/list') List of Cocktails
+                a(href='/admin/cocktail') Admin Page
+        .list-container
+            .list-info 
+                h1.page-title List of Cocktails
+                h2.sub-title Check out our top 5 cocktails!
+
+    .cocktail-grid 
+        each cocktailDrink in drinks
+            .cocktail-card 
+                h2= cocktailDrink.name
+                ul
+                    li Main Acohol: #{cocktailDrink.type}
+                    li Cocktail Origin: #{cocktailDrink.origin}
+                    li Alcohol Content: #{cocktailDrink.alcoholContent}
+                    li Ingredients: #{cocktailDrink.ingredients}
+                    li How to Make a #{cocktailDrink.name}: #{cocktailDrink.preparation}
+                    li Created on: #{cocktailDrink.creationDate}
